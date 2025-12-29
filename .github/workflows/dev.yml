@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Fetch secrets from Infisical
+        uses: infisical/secrets-action@v1
+        with:
+          projectId: ${{ secrets.INFISICAL_PROJECT_ID }}
+          env: ${{ secrets.ENV }}
+
+      - name: Use secret
+        run: |
+          echo "SECRET_FROM_SDK=$SECRET_FROM_SDK"
+          echo "TEST_SECRET_VALUE=$TEST_SECRET_VALUE"
