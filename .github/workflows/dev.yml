@@ -16,7 +16,7 @@ jobs:
         uses: Infisical/secrets-action@v1.0.9
         with:
           method: "oidc"
-          # identity-id: "24be0d94-b43a-41c4-812c-1e8654d9ce1e"
+          identity-id: "9c25205a-5595-44a2-99f6-744f92ab6e45"
           domain: "https://app.infisical.com"
           env-slug: "dev"
           project-slug: "infisical-test-sm"
